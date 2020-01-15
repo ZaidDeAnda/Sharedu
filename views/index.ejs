@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+
+<div class="container">
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1 class="text-center">No seas sólo un estudiante</h1>
+        <h2 class="text-center">Puedes ser algo más</h2>
+    </div>
+
+    <!-- Olimpiadas -->
+    <div class="header text-center">
+        <h2>Olimpiadas</h2>
+    </div>
+
+    <div class="row">
+        <% olimpiadas.forEach(function(olimpiada) { %>
+            <div class="col-xs-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="<%= olimpiada.imagen %>">
+                    <div class="caption">
+                        <p><strong> <%= olimpiada.nombre %> </strong></p>
+                        <p> <%= olimpiada.descripcion.substring(0,100) %> </p>   
+                        <p class="encargado">-<%= olimpiada.encargado.username %></p>                 
+                        <a href="/olimpiadas/<%= olimpiada._id %>" class="btn btn-primary">Leer más</a>
+                    </div>        
+                </div>
+            </div>
+        <% }); %>    
+    </div>
+
+</div>
+<%- include('partials/footer') %>

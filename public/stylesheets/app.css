@@ -1,0 +1,53 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.hr-navbar {
+    display: none;
+}
+
+.encargado {
+    color: gray;
+    font-size: 15px;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+}
+
+/* Thumbnail styles */
+.thumbnail img {
+    width: 100%;
+}
+
+.container .text-muted {
+    margin: 20px 0;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+.delete-form {
+    display: inline;
+}
+
+@media(max-width: 767px) {
+    .hr-navbar {
+        display: block;
+    }
+}

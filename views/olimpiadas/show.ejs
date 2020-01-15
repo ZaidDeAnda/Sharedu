@@ -1,0 +1,63 @@
+<%- include('../partials/header') %>
+<div class="container">
+<div class="row">
+    <div class="col-md-3">
+      <p class="lead">Olimpiadas</p>
+      <div class="list-group">
+        <li class="list-group-item active">Info 1</li>
+        <li class="list-group-item">Info 2</li>
+        <li class="list-group-item">Info 3</li>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="thumbnail">
+        <img class="img-responsive" src="<%= olimpiada.imagen %>">
+        <div class="caption-full">
+          <h4><a href="#"><%=olimpiada.nombre%></a></h4>
+          <p><%= olimpiada.descripcion %></p>
+          <h4>Requisitos</h4>
+          <ul>
+            <% olimpiada.requisitos.forEach(function(requisito) { %>
+              <li><%= requisito %></li>  
+            <% }); %>
+          </ul>
+          <!-- ¿Está abierta la convocatoria? -->
+          <% if(olimpiada.isOpen) {%>
+            <h3><span class="label label-success">La convocatoria está abierta</span></h3>
+          <% } else { %>
+            <h3><span class="label label-danger">La convocatoria está cerrada</span></h3>
+          <% } %>
+          <p>
+            <em>Submitted by: <%= olimpiada.encargado.username %>%></em>
+          </p>
+          <% if(currentUser && olimpiada.encargado.id.equals(currentUser._id)){ %>
+          <a class="btn btn-warning" href="/olimpiadas/<%= olimpiada._id %>/edit">Edit</a>
+          <form action="/olimpiadas/<%= olimpiada._id %>?_method=DELETE" method="POST" class="delete-form">
+            <button class="btn btn-danger">Delete</button>
+          </form>
+          <% } %>
+        </div>
+      </div>
+      <div class="well">
+        <div class="text-right">
+          <a class="btn btn-success" href="/olimpiadas/<%= olimpiada._id %>/comments/new">Add New Comment</a>
+        </div>
+        <hr>
+        <%// olimpiada.comments.forEach(function(comment){ %>
+        <div class="row">
+          <div class="col-md-12">
+            <strong>Bubu</strong>
+            <span class="pull-right">10 days ago</span>
+            <div>
+            ¡Una expreciencia increíble!
+            <hr>
+          </div>
+        </div>
+      </div>
+      <% //}) %>
+    </div>
+  </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

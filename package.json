@@ -1,0 +1,39 @@
+{
+  "name": "sharedu",
+  "version": "1.0.0",
+  "description": "A cool website full of courses and challenges",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BubuDavid/Sharedu.git"
+  },
+  "keywords": [
+    "courses",
+    "contest",
+    "challenges",
+    "Mexico",
+    "Olympiad"
+  ],
+  "author": "David Pedroza Segoviano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BubuDavid/Sharedu/issues"
+  },
+  "homepage": "https://github.com/BubuDavid/Sharedu#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.8.3",
+    "nodemon": "^2.0.2",
+    "passport": "^0.4.1",
+    "passport-local-mongoose": "^5.0.1"
+  }
+}
