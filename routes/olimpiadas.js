@@ -1,19 +1,38 @@
 var express          = require('express'),
     Olimpiada        = require('../models/olimpiada'),
     router           = express.Router(),
+    airtable         = require("airtable"),
+    base             = airtable.base(process.env.AIRTABLE_BASE),
     middlewareObject = require('../middleware');
 
 
 // INDEX ROUTE
 router.get("/", function(req, res) {
-    Olimpiada.find({}, function(err, allOlympiads) {
+    var olimpiadas = {};
+    olimpiadas.convocatoria = [];
+    olimpiadas.institucion = [];
+    base('Convocatorias').select({
+        view: "Grid view"
+    }).eachPage(function page(records, fetchNextPage) {
+        records.forEach(function(record) {
+            base('Instituciones').find(record.fields.Comunidad[0], function(err, institucion) {
+                if(err) {
+                    console.log("No existe la institución we");
+                } else {
+                    olimpiadas.institucion.push(institucion.fields.Nombre);
+                }
+            });
+            olimpiadas.convocatoria.push(record.fields);
+        });
+        console.log(olimpiadas);
+        res.render('olimpiadas/index', {olimpiadas:olimpiadas});
+        fetchNextPage();
+    }, function done(err) {
         if(err) {
-            console.log("OH NO!");
-            console.log(err);
-        } else {
-            res.render("olimpiadas/index", {olimpiadas:allOlympiads});
+            console.log("NOOOOOOOO!")
+            return;
         }
-    })
+    });
 });
 
 // NEW ROUTE

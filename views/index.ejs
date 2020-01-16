@@ -7,24 +7,195 @@
         <h2 class="text-center">Puedes ser algo más</h2>
     </div>
 
-    <!-- Olimpiadas -->
+    <!-- Movilidad -->
     <div class="header text-center">
-        <h2>Olimpiadas</h2>
+        <h2>Movilidad internacional</h2>
+        <p>¡Ve al extranjero! Viaja, conoce y descubre, para hacer de México un mejor lugar</p>
     </div>
 
     <div class="row">
-        <% olimpiadas.forEach(function(olimpiada) { %>
+        <% convocatorias.forEach(function(convocatoria) { %>
+            <% if(convocatoria.fields.tipo.indexOf('Movilidad internacional') != -1) { %>
             <div class="col-xs-6 col-md-3">
                 <div class="thumbnail">
-                    <img src="<%= olimpiada.imagen %>">
+                    <img src="<%= convocatoria.fields.foto[0].url %>">
                     <div class="caption">
-                        <p><strong> <%= olimpiada.nombre %> </strong></p>
-                        <p> <%= olimpiada.descripcion.substring(0,100) %> </p>   
-                        <p class="encargado">-<%= olimpiada.encargado.username %></p>                 
-                        <a href="/olimpiadas/<%= olimpiada._id %>" class="btn btn-primary">Leer más</a>
+                        <p><strong> <%= convocatoria.fields.nombre %> </strong></p>
+                        <p> <%= convocatoria.fields.descripcion.substring(0,100) %> </p>   
+                        <p class="encargado">-<%= convocatoria.fields.nombre_institucion %></p>                 
+                        <a href="/convocatorias/<%= convocatoria.id %>" class="btn btn-primary">Leer más</a>
                     </div>        
                 </div>
             </div>
+            <% } %>
+        <% }); %>    
+    </div>
+
+    <!-- Voluntariado -->
+    <div class="header text-center">
+        <h2>Voluntariado</h2>
+        <p>Si te gusta ayudar, ¡Aprovecha estas oportunidades para ayudar en otras partes del mundo!</p>
+    </div>
+
+    <div class="row">
+        <% convocatorias.forEach(function(convocatoria) { %>
+            <% if(convocatoria.fields.tipo.indexOf('Voluntariado') != -1) { %>
+            <div class="col-xs-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="<%= convocatoria.fields.foto[0].url %>">
+                    <div class="caption">
+                        <p><strong> <%= convocatoria.fields.nombre %> </strong></p>
+                        <p> <%= convocatoria.fields.descripcion.substring(0,100) %> </p>   
+                        <p class="encargado">-<%= convocatoria.fields.nombre_institucion %></p>                 
+                        <a href="/convocatorias/<%= convocatoria.id %>" class="btn btn-primary">Leer más</a>
+                    </div>        
+                </div>
+            </div>
+            <% } %>
+        <% }); %>    
+    </div>
+
+    <!-- Conferencias, meet ups u eventos -->
+    <div class="header text-center">
+        <h2>Conferencias, eventos y/o meetups</h2>
+        <p>¿Quieres llenarte de inspiración con gente igual de apasionada que tú? Checa abajo</p>
+    </div>
+
+    <div class="row">
+        <% convocatorias.forEach(function(convocatoria) { %>
+            <% if(convocatoria.fields.tipo.indexOf('Conferencias y/o meetups') != -1) { %>
+            <div class="col-xs-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="<%= convocatoria.fields.foto[0].url %>">
+                    <div class="caption">
+                        <p><strong> <%= convocatoria.fields.nombre %> </strong></p>
+                        <p> <%= convocatoria.fields.descripcion.substring(0,100) %> </p>   
+                        <p class="encargado">-<%= convocatoria.fields.nombre_institucion %></p>                 
+                        <a href="/convocatorias/<%= convocatoria.id %>" class="btn btn-primary">Leer más</a>
+                    </div>        
+                </div>
+            </div>
+            <% } %>
+        <% }); %>    
+    </div>
+
+    <!-- Becas -->
+    <div class="header text-center">
+        <h2>Becas</h2>
+        <p>Tienes una gran ambición, pero si necesitas dinero, adelante a esta sección:</p>
+    </div>
+
+    <div class="row">
+        <% convocatorias.forEach(function(convocatoria) { %>
+            <% if(convocatoria.fields.tipo.indexOf('Becas') != -1) { %>
+            <div class="col-xs-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="<%= convocatoria.fields.foto[0].url %>">
+                    <div class="caption">
+                        <p><strong> <%= convocatoria.fields.nombre %> </strong></p>
+                        <p> <%= convocatoria.fields.descripcion.substring(0,100) %> </p>   
+                        <p class="encargado">-<%= convocatoria.fields.nombre_institucion %></p>                 
+                        <a href="/convocatorias/<%= convocatoria.id %>" class="btn btn-primary">Leer más</a>
+                    </div>        
+                </div>
+            </div>
+            <% } %>
+        <% }); %>    
+    </div>
+
+    <!-- Hackathones -->
+    <div class="header text-center">
+        <h2>Hackathones</h2>
+        <p>Entérate de las mejores competencias tecnológicas y científicas, ¡Puedes ser uno de los mejores!</p>
+    </div>
+
+    <div class="row">
+        <% convocatorias.forEach(function(convocatoria) { %>
+            <% if(convocatoria.fields.tipo.indexOf('Hackathon') != -1) { %>
+            <div class="col-xs-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="<%= convocatoria.fields.foto[0].url %>">
+                    <div class="caption">
+                        <p><strong> <%= convocatoria.fields.nombre %> </strong></p>
+                        <p> <%= convocatoria.fields.descripcion.substring(0,100) %> </p>   
+                        <p class="encargado">-<%= convocatoria.fields.nombre_institucion %></p>                 
+                        <a href="/convocatorias/<%= convocatoria.id %>" class="btn btn-primary">Leer más</a>
+                    </div>        
+                </div>
+            </div>
+            <% } %>
+        <% }); %>    
+    </div>
+
+    <!-- Olimpiadas -->
+    <div class="header text-center">
+        <h2>Olimpiadas del conocimiento</h2>
+        <p>Te gusta la física, la química, las matemáticas o algún otro tipo de ciencia, échale un ojo a esto Conviértete en uno de los mejores del País!</p>
+    </div>
+
+    <div class="row">
+        <% convocatorias.forEach(function(convocatoria) { %>
+            <% if(convocatoria.fields.tipo.indexOf('Olimpiada del conocimiento') != -1) { %>
+            <div class="col-xs-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="<%= convocatoria.fields.foto[0].url %>">
+                    <div class="caption">
+                        <p><strong> <%= convocatoria.fields.nombre %> </strong></p>
+                        <p> <%= convocatoria.fields.descripcion.substring(0,100) %> </p>   
+                        <p class="encargado">-<%= convocatoria.fields.nombre_institucion %></p>                 
+                        <a href="/convocatorias/<%= convocatoria.id %>" class="btn btn-primary">Leer más</a>
+                    </div>        
+                </div>
+            </div>
+            <% } %>
+        <% }); %>    
+    </div>
+
+    <!-- Unión a comunidades -->
+    <div class="header text-center">
+        <h2>Comunidades</h2>
+        <p>Si te interesa formar parte de un equipo que se encarga de actividades relacionadas con la tecnología, medio ambiente, divulgación científica, jálate </p>
+    </div>
+
+    <div class="row">
+        <% convocatorias.forEach(function(convocatoria) { %>
+            <% if(convocatoria.fields.tipo.indexOf('Unión a comunidades/grupos') != -1) { %>
+            <div class="col-xs-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="<%= convocatoria.fields.foto[0].url %>">
+                    <div class="caption">
+                        <p><strong> <%= convocatoria.fields.nombre %> </strong></p>
+                        <p> <%= convocatoria.fields.descripcion.substring(0,100) %> </p>   
+                        <p class="encargado">-<%= convocatoria.fields.nombre_institucion %></p>                 
+                        <a href="/convocatorias/<%= convocatoria.id %>" class="btn btn-primary">Leer más</a>
+                    </div>        
+                </div>
+            </div>
+            <% } %>
+        <% }); %>    
+    </div>
+
+    <!-- Apoyo a posgrados -->
+    <div class="header text-center">
+        <h2>Apoyo de posgrados</h2>
+        <p>¿Interesado en estudiar un posgrado? Te mostramos algunos apoyos :D</p>
+    </div>
+
+    <div class="row">
+        <% convocatorias.forEach(function(convocatoria) { %>
+            <% if(convocatoria.fields.tipo.indexOf('Apoyo a posgrados') != -1) { %>
+            <div class="col-xs-6 col-md-3">
+                <div class="thumbnail">
+                    <img src="<%= convocatoria.fields.foto[0].url %>">
+                    <div class="caption">
+                        <p><strong> <%= convocatoria.fields.nombre %> </strong></p>
+                        <p> <%= convocatoria.fields.descripcion.substring(0,100) %> </p>   
+                        <p class="encargado">-<%= convocatoria.fields.nombre_institucion %></p>                 
+                        <a href="/convocatorias/<%= convocatoria.id %>" class="btn btn-primary">Leer más</a>
+                    </div>        
+                </div>
+            </div>
+            <% } %>
         <% }); %>    
     </div>
 

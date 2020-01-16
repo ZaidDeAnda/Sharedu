@@ -4,18 +4,17 @@
 var express       = require('express'),
     bodyParser    = require('body-parser'),
     mongoose      = require('mongoose'),
+    airtable      = require("airtable"),
     flash         = require('connect-flash'),
     passport      = require('passport'),
     localStrategy = require('passport-local'),
     methodOverride = require('method-override'),
     // Import models, before they were in this file, but now it's in another one
-    Olimpiada     = require('./models/olimpiada'),
     User          = require('./models/user'),
     // To have our data base very cool
     // seedDB        = require('./seed'),
     // Routes
     indexRoutes   = require('./routes/index'),
-    olimpicRoutes = require('./routes/olimpiadas'),
 
     app           = express();
 // ===============================================================================================
@@ -48,11 +47,17 @@ app.use(function(req, res, next){
     next();
  });
 
+ // Airtable setup
+ airtable.configure({
+    apiKey: process.env.AIRTABLE_API_KEY
+});
+var base = airtable.base(process.env.AIRTABLE_BASE);
+
+
 // ===============================================================================================
 //    Routes
 // ===============================================================================================
 app.use("/", indexRoutes);
-app.use("/olimpiadas", olimpicRoutes);
 
 // ===============================================================================================
 //    Run the server

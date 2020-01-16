@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/BubuDavid/Sharedu#readme",
   "dependencies": {
+    "airtable": "^0.8.1",
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
     "ejs": "^3.0.1",
