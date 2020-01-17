@@ -33,11 +33,22 @@
               <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a href="/login">Login</a></li>
               <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a href="/register">Sign Up</a></li>
               <% } else {%>
-                <li><a href="#">Signed In As <%= currentUser.username %></a></li>
+                <li><a href="/profile">Signed In As <%= currentUser.username %></a></li>
                 <li><a href="/logout">Logout</a></li>
               <% } %>
             </ul>
           </div>
       </div>
   </nav>
+
+  <div class="container">
+    <% if(error && error.length > 0) { %>
+      <div class="alert alert-danger"><p><%=error %></p></div>
+    <% } %>
+    
+    <% if(success && success.length > 0) { %>
+      <div class="alert alert-success"><p><%= success %></p></div>
+    <% } %>
+ </div>
+ <div class="container">
 
