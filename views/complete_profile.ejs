@@ -1,16 +1,71 @@
 <%- include("./partials/header") %>
 
     <% if(currentUser.isCommunity == false) { %>
-    <iframe class="airtable-embed" src="https://airtable.com/embed/shrkylsXfRvGjYdkQ?backgroundColor=teal" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>            
+        <div class="row">
+            <h1 style="text-align: center">¡ESPERA!</h1>
+            <div style="width: 30%; margin: 25px auto;">
+                <form action="/complete-profile" method="POST">
+                    <p>Necesitamos que completes tu perfil para poder darte un mejor servicio</p>
+                    <div class="form-group">
+                        <label>Nombre completo</label>
+                        <input class="form-control" type="text" required name="usuario[nombre]" placeholder="Nombre">
+                    </div>
+                    <div class="form-group">
+                        <label>Edad</label>
+                        <input class="form-control" type="text" required name="usuario[edad]" placeholder="Edad">
+                    </div>
+                    <div class="form-group">
+                        <label> Correo electrónico: </label>
+                        <input class="form-control" type="text" name="usuario[correo]" required placeholder="sharedu@gmail.com">
+                    </div>
+                    <div class="form-group">
+                        <label> ¿Actualmente estudias? </label>
+                        <select name="usuario[isStudying]" class="form-control">
+                            <option value="Sí">Sí</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label> Nivel de inglés </label>
+                        <select name="usuario[EnglishLevel]" class="form-control">
+                            <option value="Principiante (A1)">Principiante (A1)</option>
+                            <option value="Elemental (A2)">Elemental (A2)</option>
+                            <option value="Intermedio (B1)">Intermedio (B1)</option>
+                            <option value="Intermedio alto (B2)">Intermedio alto (B2)</option>
+                            <option value="Avanzado (C1)">Avanzado (C1)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label> Máximo grado de estudios </label>
+                        <select name="usuario[studyGrade]" class="form-control">
+                            <option value="Primaria">Primaria</option>
+                            <option value="Secundaria">Secundaria</option>
+                            <option value="Preparatoria">Preparatoria</option>
+                            <option value="Universidad">Universidad</option>
+                            <option value="Maestría">Maestría</option>
+                            <option value="Doctorado">Doctorado</option>
+                            <option value="Post-doctorado">Post-doctorado</option>
+                        </select>
+                    </div>
+                    <label> ¿Vives en Gto? </label>
+                    <select name="usuario[isGto]" class="form-control">
+                        <option value="Sí">Sí</option>
+                        <option value="No">No</option>
+                    </select>
+                    <div class="form-group">
+                        <label> Ingresa el link de alguna foto para tu foto de perfil</label>
+                        <input class="form-control" type="text" name="usuario[foto]">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block">¡Listo!</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
     <% } else { %>
         <iframe class="airtable-embed" src="https://airtable.com/embed/shr7ZEI6ayt2G5ZBW?backgroundColor=teal" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
     <% } %>
-
-    <div class="abajo">
-        <h4>¡Al terminar, presiona <strong>submit</strong> arriba y <strong>listo</strong> abajo ;)!</h4>
-    </div>
-
-    <a href="/profile" class="btn btn-success">¡LISTO!</a>
 
 
 <%- include("./partials/footer") %>
